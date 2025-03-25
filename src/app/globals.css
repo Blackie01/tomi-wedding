@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.75rem;
+
+    /* Aurora theme colors */
+    --aurora-blue: 210 100% 35%;
+    --aurora-green: 150 80% 35%;
+    --aurora-purple: 280 70% 35%;
+    --aurora-teal: 180 70% 35%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Custom font setups */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+
+  body {
+    font-family: var(--font-sans);
+  }
+}
+
+/* Aurora animation */
+.aurora {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  opacity: 0.7;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(10, 15, 30, 0.8) 0%,
+      rgba(10, 15, 30, 0.9) 75%,
+      rgba(10, 15, 30, 1) 100%
+    );
+}
+
+.aurora__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  animation: aurora 20s linear infinite;
+}
+
+.aurora__item:nth-child(1) {
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(32, 219, 177, 0.4) 30%,
+      rgba(0, 230, 118, 0.2) 50%,
+      transparent 70%
+    );
+  animation-duration: 17s;
+  animation-delay: 1s;
+  transform-origin: 80% 20%;
+}
+
+.aurora__item:nth-child(2) {
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(39, 139, 230, 0.3) 20%,
+      rgba(83, 175, 255, 0.4) 40%,
+      transparent 60%
+    );
+  animation-duration: 15s;
+  animation-delay: 4s;
+  transform-origin: 60% 40%;
+}
+
+.aurora__item:nth-child(3) {
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(162, 94, 230, 0.3) 40%,
+      rgba(142, 0, 240, 0.2) 60%,
+      transparent 80%
+    );
+  animation-duration: 22s;
+  animation-delay: 7s;
+  transform-origin: 10% 80%;
+}
+
+@keyframes aurora {
+  0% {
+    transform: rotate(0deg) translateY(-20%) scaleX(1.5) scaleY(0.7);
+  }
+  25% {
+    transform: rotate(5deg) translateY(-15%) scaleX(1.7) scaleY(0.6);
+  }
+  50% {
+    transform: rotate(0deg) translateY(-10%) scaleX(1.6) scaleY(0.5);
+  }
+  75% {
+    transform: rotate(-5deg) translateY(-15%) scaleX(1.5) scaleY(0.6);
+  }
+  100% {
+    transform: rotate(0deg) translateY(-20%) scaleX(1.5) scaleY(0.7);
+  }
+}
